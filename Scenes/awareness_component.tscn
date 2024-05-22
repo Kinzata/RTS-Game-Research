@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c32a2y31wlrax"]
+
+[ext_resource type="Script" path="res://Scripts/awareness_component.gd" id="1_t1ggs"]
+[ext_resource type="Texture2D" uid="uid://dwvfvmuia7pm0" path="res://assets/UI/Emotes/emote_exclamation.png" id="2_pbuyw"]
+
+[node name="AwarenessComponent" type="Area2D"]
+y_sort_enabled = true
+script = ExtResource("1_t1ggs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(0, -9)
+texture = ExtResource("2_pbuyw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,11 @@
+Unit Movement
+x Movement indicator
+x Move to unique spaces
+- - Done but can be improved for sure
+
+Combat
+- Enemy Unit (Different team)
+- Attack state
+- Attack command
+- Attack animation
+- Unit Stats

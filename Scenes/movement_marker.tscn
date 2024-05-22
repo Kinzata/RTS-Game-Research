@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://crystjliaap0v"]
+
+[ext_resource type="Texture2D" uid="uid://csgo71h53fwft" path="res://assets/UI/UIpackSheet_transparent.png" id="1_il1qp"]
+[ext_resource type="Script" path="res://Scripts/movement_marker.gd" id="2_mmsr0"]
+
+[sub_resource type="Animation" id="Animation_6sgia"]
+resource_name = "Bounce"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.378929, 1),
+"update": 0,
+"values": [Vector2(0, -7.64445), Vector2(0, -14.6445)]
+}
+
+[sub_resource type="Animation" id="Animation_s2jo3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8.23265)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrpsa"]
+_data = {
+"Bounce": SubResource("Animation_6sgia"),
+"RESET": SubResource("Animation_s2jo3")
+}
+
+[node name="MovementMarker" type="Node2D"]
+z_index = 50
+position = Vector2(0, -0.355545)
+script = ExtResource("2_mmsr0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 50
+position = Vector2(0, -8.23265)
+texture = ExtResource("1_il1qp")
+offset = Vector2(-0.86, 3.5)
+hframes = 30
+vframes = 33
+frame = 771
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jrpsa")
+}
+autoplay = "Bounce"
