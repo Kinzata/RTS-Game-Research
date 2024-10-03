@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgws7gmewx0v1"]
+[gd_scene load_steps=6 format=3 uid="uid://bgws7gmewx0v1"]
 
 [ext_resource type="TileSet" uid="uid://dipfx5vjpcyws" path="res://assets/Terrain/Main_Tileset.tres" id="1_5th53"]
-[ext_resource type="PackedScene" uid="uid://bqi6vwg1oy0m6" path="res://Scenes/blue_warrior_unit.tscn" id="2_lnupd"]
-[ext_resource type="PackedScene" uid="uid://cvc7p18bi667n" path="res://Scenes/player_controller.tscn" id="3_s4xdc"]
-[ext_resource type="PackedScene" uid="uid://djw5xuey8t6ej" path="res://Scenes/purple_warrior_unit.tscn" id="4_t6n8w"]
+[ext_resource type="PackedScene" uid="uid://bqi6vwg1oy0m6" path="res://Data/Units/unit_knight.tscn" id="2_lnupd"]
+[ext_resource type="PackedScene" uid="uid://cvc7p18bi667n" path="res://Data/Player/player_controller.tscn" id="3_s4xdc"]
+[ext_resource type="Resource" uid="uid://djsn33j037cch" path="res://Data/Units/Resources/Purple_Knight.tres" id="4_nn3xs"]
+[ext_resource type="Resource" uid="uid://dwbw6j8q1gb12" path="res://Data/Units/Resources/Blue_Archer.tres" id="5_utauy"]
 
 [node name="Combat Test Scene" type="Node2D"]
 y_sort_enabled = true
@@ -30,40 +31,34 @@ layer_3/tile_data = PackedInt32Array(393217, 4, 0, 327681, 4, 0, 262145, 4, 0, 1
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(641, 429)
 
-[node name="Unit" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit5" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit6" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit7" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit8" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit9" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit10" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit11" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit2" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit3" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
-[node name="Unit4" parent="." instance=ExtResource("2_lnupd")]
-position = Vector2(299, 224)
-
 [node name="PlayerController" parent="." instance=ExtResource("3_s4xdc")]
 
-[node name="Unit12" parent="." instance=ExtResource("4_t6n8w")]
-position = Vector2(932, 576)
+[node name="Unit11" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(828, 457)
+team_string = "Purple"
+unit_data = ExtResource("4_nn3xs")
+
+[node name="Unit16" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(294, 226)
+team_string = "Blue"
+unit_data = ExtResource("5_utauy")
+
+[node name="Unit12" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(828, 457)
+team_string = "Purple"
+unit_data = ExtResource("4_nn3xs")
+
+[node name="Unit13" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(828, 457)
+team_string = "Purple"
+unit_data = ExtResource("4_nn3xs")
+
+[node name="Unit14" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(816, 469)
+team_string = "Purple"
+unit_data = ExtResource("4_nn3xs")
+
+[node name="Unit15" parent="." instance=ExtResource("2_lnupd")]
+position = Vector2(808, 464)
+team_string = "Purple"
+unit_data = ExtResource("4_nn3xs")

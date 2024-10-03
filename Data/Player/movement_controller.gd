@@ -2,7 +2,6 @@ class_name MovementController
 
 extends Node2D
 
-
 func send_curve_movement_to_units(units: Array[Unit], curve: Curve2D):
 	var pos_percent = 1.0 / units.size()
 	for i in range(units.size()):

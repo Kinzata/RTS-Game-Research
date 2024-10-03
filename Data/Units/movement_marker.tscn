@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://crystjliaap0v"]
 
 [ext_resource type="Texture2D" uid="uid://csgo71h53fwft" path="res://assets/UI/UIpackSheet_transparent.png" id="1_il1qp"]
-[ext_resource type="Script" path="res://Scripts/movement_marker.gd" id="2_mmsr0"]
+[ext_resource type="Script" path="res://Data/Units/movement_marker.gd" id="2_mmsr0"]
 
 [sub_resource type="Animation" id="Animation_6sgia"]
 resource_name = "Bounce"

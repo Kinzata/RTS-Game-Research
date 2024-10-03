@@ -3,9 +3,33 @@ x Movement indicator
 x Move to unique spaces
 - - Done but can be improved for sure
 
+Vector Flow for horder
+
 Combat
 - Enemy Unit (Different team)
 - Attack state
 - Attack command
 - Attack animation
 - Unit Stats
+
+
+Unit
+- Idle
+- - Watch for enemies
+- Moving
+- - Send move position
+- - Transition to idle when position reached
+- Attack Moving
+- - Send move position
+- - Watch for enemies
+- - Transition to Chasing when once is seen
+- Chasing
+- - Send move position often of target
+- Attacking
+- - Enemy Target is within attack range
+- - Actively attacking enemy
+- Holding
+- - Not moving
+- - Cannot enter Chase state
+
+Fix Boid collision in idle state

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dudu8pstaobnq"]
+
+[ext_resource type="Script" path="res://Data/Units/flow_unit.gd" id="1_8xb0l"]
+[ext_resource type="SpriteFrames" uid="uid://bt1qa6m1ihxqo" path="res://assets/Factions/Knights/Troops/Warrior/Purple/Purple_WarriorSpriteFrames.tres" id="1_ogq8o"]
+[ext_resource type="Script" path="res://Data/Units/unit_animation_controller.gd" id="3_7h1vr"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_f48rs"]
+friction = 0.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1k8lj"]
+radius = 6.08276
+
+[node name="FlowUnit" type="RigidBody2D"]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_f48rs")
+gravity_scale = 0.0
+lock_rotation = true
+script = ExtResource("1_8xb0l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_1k8lj")
+
+[node name="UnitAnimationController" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(0.25, 0.25)
+sprite_frames = ExtResource("1_ogq8o")
+animation = &"Attack_Down"
+script = ExtResource("3_7h1vr")

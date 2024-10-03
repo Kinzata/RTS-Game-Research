@@ -11,39 +11,50 @@ var drag_end_pos := Vector2.ZERO
 @export var time_between_curve_points := 0.05
 var t_curve := 0.0
 var curve: Curve2D
+var curve_points: int
 var curve_tesselate: PackedVector2Array
 
 @onready var movement_controller: MovementController = $MovementController
+
+enum InputState {
+	NONE,
+	DRAG_SELECT,
+	DRAG_MOVE
+}
+
+var input_state = InputState.NONE
 
 func _ready():
 	t_curve = time_between_curve_points
 
 func _unhandled_input(event):
-	if event is InputEventMouseMotion and dragging:
-		# draw box
+	if event is InputEventMouseMotion \
+		and (input_state == InputState.DRAG_SELECT or input_state == InputState.DRAG_MOVE):
 		queue_redraw()
-		
+	
 	if event.is_action_pressed("left_click"):
-		# start dragging
+		input_state = InputState.DRAG_SELECT
+
 		dragging = true
 		drag_start_pos = get_global_mouse_position()
-		
+			
 	if event.is_action_released("left_click"):
-		# stop dragging
-		dragging = false
+		input_state = InputState.NONE
+		
 		queue_redraw()
 		drag_end_pos = get_global_mouse_position()
 		_query_for_selection()
 		
 	if event.is_action_pressed("right_click"):
-		dragging = true
-		movement = true
+		input_state = InputState.DRAG_MOVE
+		
 		t_curve = time_between_curve_points
 		curve = Curve2D.new()
+		curve_points = 0
 		
 	if event.is_action_released("right_click"):
-		dragging = false
-		movement = false
+		input_state = InputState.NONE
+		
 		curve_tesselate = []
 		queue_redraw()
 		if( selected_units.size() > 0 ):
@@ -55,11 +66,13 @@ func _unhandled_input(event):
 				movement_controller.send_movement_to_units(units, get_global_mouse_position())
 
 func _process(delta):
-	if(movement and dragging):
+	if(input_state == InputState.DRAG_MOVE):
 		t_curve += delta
 		if(t_curve >= time_between_curve_points):
 			curve.add_point(get_global_mouse_position())
-			curve_tesselate = curve.tessellate_even_length()
+			curve_points += 1
+			if( curve_points > 1):
+				curve_tesselate = curve.tessellate_even_length()
 			t_curve = 0
 
 func _query_for_selection():
@@ -82,13 +95,13 @@ func _query_for_selection():
 
 func _unit_selection_filter(d: Dictionary) -> bool:
 	var collider = d.collider
-	return collider is Unit and collider.is_in_group("Blue")
+	return collider is Unit
 
 func _draw():
-	if not movement and dragging:
+	if input_state == InputState.DRAG_SELECT:
 		draw_rect(Rect2(drag_start_pos, get_global_mouse_position() - drag_start_pos), Color.WHITE, false, 2.0)
 		
-	if movement and dragging:
+	if input_state == InputState.DRAG_MOVE:
 		if(curve_tesselate.size() > 1 ):
 			var start = curve_tesselate[0]
 			for i in range(1, curve_tesselate.size()):

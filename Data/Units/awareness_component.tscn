@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c32a2y31wlrax"]
 
-[ext_resource type="Script" path="res://Scripts/awareness_component.gd" id="1_t1ggs"]
+[ext_resource type="Script" path="res://Data/Units/awareness_component.gd" id="1_t1ggs"]
 [ext_resource type="Texture2D" uid="uid://dwvfvmuia7pm0" path="res://assets/UI/Emotes/emote_exclamation.png" id="2_pbuyw"]
 
 [node name="AwarenessComponent" type="Area2D"]

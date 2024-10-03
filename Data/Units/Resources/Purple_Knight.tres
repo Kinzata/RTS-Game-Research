@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=4 format=3 uid="uid://djsn33j037cch"]
+
+[ext_resource type="AnimationLibrary" uid="uid://ds4au3q7krlf8" path="res://Animations/Unit.res" id="1_6x7ky"]
+[ext_resource type="Script" path="res://Data/Units/Resources/UnitData.gd" id="2_mdyj6"]
+[ext_resource type="SpriteFrames" uid="uid://bt1qa6m1ihxqo" path="res://assets/Factions/Knights/Troops/Warrior/Purple/Purple_WarriorSpriteFrames.tres" id="3_wo6b3"]
+
+[resource]
+script = ExtResource("2_mdyj6")
+health = 10
+speed = 75.0
+range = 40.0
+attack_damage = 4
+sprite_frames = ExtResource("3_wo6b3")
+animation_library = ExtResource("1_6x7ky")

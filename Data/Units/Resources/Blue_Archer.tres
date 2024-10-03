@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="UnitData" load_steps=4 format=3 uid="uid://dwbw6j8q1gb12"]
+
+[ext_resource type="AnimationLibrary" uid="uid://u568uhdbeshg" path="res://Animations/Unit_Archer.res" id="1_w70u3"]
+[ext_resource type="Script" path="res://Data/Units/Resources/UnitData.gd" id="2_agdvt"]
+[ext_resource type="SpriteFrames" uid="uid://bg7c1b7onrua7" path="res://assets/Factions/Knights/Troops/Archer/Blue/Blue_ArcherSpriteFrames.tres" id="3_2tbln"]
+
+[resource]
+script = ExtResource("2_agdvt")
+health = 10
+speed = 75.0
+range = 200.0
+attack_damage = 2
+sprite_frames = ExtResource("3_2tbln")
+animation_library = ExtResource("1_w70u3")
